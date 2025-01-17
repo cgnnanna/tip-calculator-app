@@ -1,0 +1,235 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Space Mono', monospace;
+}
+
+body {
+    background-color: hsl(185, 41%, 84%);
+    height: 120vh;
+    width: 100vw;
+}
+
+#page-wrapper {
+    text-align: center;
+    width: 100%;
+    display: flex;
+    padding: 10% 20%;
+    flex-direction: column;
+    align-items: center;
+}
+
+#app-description {
+    padding: 0 20%;
+    max-width: 52%;
+    font-size: 24px;
+    letter-spacing: 10px;
+    overflow-wrap: break-word;
+    color: hsl(183, 100%, 15%);
+    margin-bottom: 60px;
+}
+
+#calculator-wrapper {
+    background-color: white;
+    border-radius: 20px;
+    padding: 2.5% 5%;
+    height: 400px;
+    width: 900px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#description-box {
+    height: 350px;
+    width: 45%;
+}
+.clueWrapper{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.text{
+    width: 40%;
+    color: hsl(183, 100%, 15%);
+    font-size: 12px;
+    margin-bottom: 7px;
+    font-weight: 700;
+    text-align: left;
+}
+
+#bill:hover,
+#bill:focus {
+    border: 2px solid hsl(172, 67%, 45%);
+}
+.total {
+    display: block; /* Forces the span to be displayed as a block */
+    font-size: 10px; /* Adjust font size */
+    color: hsl(0, 0%, 44%);
+    font-weight: 400; /* Optional for a lighter text style */
+    margin-top: 5px; /* Adds spacing from the main label */
+}
+.clue{
+    width: 40%;
+    text-align: right;
+    color: hsl(0, 100%, 50%);
+    display: none;
+}
+
+.input-box,
+#number-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 10%;
+}
+
+#selection-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 10%;
+}
+#percentage-appliers {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px; /* Adjust spacing between buttons */
+}
+
+.tip-percentage {
+    width: calc(33.33% - 10px); /* Adjust width to fit three buttons with the gap */
+    height: 40px; /* Adjust height for better visibility */
+    background-color: hsl(183, 100%, 15%);
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 40px; /* Center text vertically */
+    cursor: pointer;
+}
+.tip-percentage:hover,
+.tip-percentage:focus,
+.tip-percentage:active{
+    background-color:  hsl(185, 41%, 84%);
+    color: hsl(183, 100%, 15%);
+}
+
+.tip-percentage::placeholder {
+    color: white; /* Set placeholder text color to white */
+    opacity: 1; /* Ensure the placeholder is fully visible */
+}
+#custom-tip:hover, 
+#custom-tip:focus, 
+#custom-tip:active {
+    border: 2px solid hsl(172, 67%, 45%);
+    color: hsl(183, 100%, 15%);
+    background-color: transparent;
+    outline: none; /* Ensures no blue outline appears */
+}
+.input-icon-container {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+}
+
+.input-icon {
+    position: absolute;
+    left: 10px;  /* Space between icon and left edge */
+    width: 10px;  /* Reduced size */
+    height: 12px;  /* Reduced size */
+    fill: hsl(183, 100%, 15%) !important; /* Icon color */
+    vertical-align: middle; /* Ensures the icon is vertically aligned */
+}
+
+.calculator {
+    background-color:hsl(189, 41%, 97%);
+    width: 100%;
+    height: 40px;
+    font-size: 16px;
+    font-weight: 700;
+    color: hsl(183, 100%, 15%);
+    /* border: none; */
+    padding-left: 30px;  /* Adjusted padding for smaller icon */
+    padding-right: 10px; /* Optional space on the right */
+    border-radius: 5px;
+    margin-top: 5px;
+    text-align: right; /* Align the text and placeholder to the right */
+    border: 2px solid transparent; /* Default border */
+    outline: none; /* Remove default focus outline */
+    transition: border-color 0.3s ease; /* Smooth border color change */
+}
+.calculator:focus {
+    border: 2px solid hsl(183, 100%, 15%); /* Optional valid focus border */
+}
+
+.calculator::placeholder {
+    color: hsl(185, 41%, 84%); /* Same color as the icon */
+    text-align: right; /* Align placeholder to the right */
+}
+
+#display-box {
+    height: 350px;
+    background-color: hsl(183, 100%, 15%);
+    width: 50%;
+    border-radius: 20px;
+    padding: 5%;
+}
+.division-block{
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.amount-box{
+    font-size: 40px;
+    font-weight: 700;
+    color: hsl(172, 67%, 45%)
+}
+.divisor{
+    font-size: 12px;
+    color:  hsl(0, 0%, 100%);
+    text-align: left;
+    max-width: 25%;
+    margin-bottom: 10%;
+    font-weight: 700;
+}
+.light-text {
+    font-size: 10px;
+    color:  hsl(0, 0%, 44%);
+    font-weight:400;
+}
+#resetBtnWrapper {
+    margin-top: 100px; /* Add spacing from above content */
+    display: flex; /* Use flexbox for alignment */
+    justify-content: space-between; /* Ensure alignment across the section */
+    width: 100%; /* Adjust width based on parent container */
+}
+
+#resetBtn {
+    width: 100%; /* Span across the available space */
+    height: 40px; /* Match other button heights */
+    background-color: rgba(185, 185, 193, 0.2); /* Very light, almost transparent background */
+    color: hsl(183, 100%, 15%); /* Keep text color solid */
+    border: none;
+    text-transform: uppercase;
+    border-radius: 5px; /* Match border radius of other buttons */
+    text-align: center;
+    line-height: 40px; /* Vertically align text */
+    font-size: 16px; /* Match font size with buttons */
+    font-weight: 700; /* Ensure text weight consistency */
+    cursor: pointer;
+}
+#resetBtn:hover,
+#resetBtn:focus, 
+#resetBtn:active {
+    background-color:  hsl(185, 41%, 84%);;
+}
+

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+  <link rel="stylesheet" href="./css/style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <title>Tip calculator app</title>
+</head>
+
+<body>
+  <div id="page-wrapper">
+    <h3 id="app-description">SPLITTER</h3>
+    <div id="calculator-wrapper">
+      <div id="description-box">
+        <div class="input-box">
+          <p class="text">Bill</p>
+          <div class="input-icon-container">
+            <img src="./images/icon-dollar.svg" alt="Dollar Icon" class="input-icon">
+            <input class="calculator" id="bill" placeholder="0" />
+          </div>
+        </div>
+        <div id="selection-box">
+          <p class="text">Select Tip %</p>
+          <div id="percentage-appliers">
+            <button class="tip-percentage" data-tip="5">5%</button>
+            <button class="tip-percentage" data-tip="10">10%</button>
+            <button class="tip-percentage" data-tip="15">15%</button>
+            <button class="tip-percentage" data-tip="25">25%</button>
+            <button class="tip-percentage" data-tip="50">50%</button>
+            <input class="tip-percentage" id="custom-tip" placeholder="Custom" />
+          </div>
+        </div>
+        <div id="number-box">
+          <div class="clueWrapper">
+            <p class="text">Number of People</p>
+            <p class="text clue"> can't be zero</p>
+          </div>
+          <div class="input-icon-container">
+            <img src="./images/icon-person.svg" alt="Person Icon" class="input-icon">
+            <input class="calculator" id="people" placeholder="0" />
+          </div>
+        </div>
+      </div>
+      <div id="display-box">
+        <div class="division-blocks">
+          <div class="division-block">
+            <p class="divisor">Tip Amount <span class="light-text">/ person</span></p>
+            <p class="tip-amount amount-box">$0.00</p>
+          </div>
+          <div class="division-block">
+            <p class="divisor">Total <span class="light-text total">/ person</span></p>
+            <p class="tip-amount amount-box">$0.00</p>
+          </div>
+        </div>
+        <div id="resetBtnWrapper">
+          <button id="resetBtn"> Reset</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="./js/index.js"></script>
+</body>
+
+</html>
