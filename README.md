@@ -1,4 +1,4 @@
-# Tip Calculator App
+# Tip Calculator App([url](https://cgnnanna.github.io/tip-calculator-app/))
 
 ## Overview
 The **Tip Calculator App** is an interactive tool designed to simplify bill splitting and tip calculations. It features a clean interface, real-time updates, and flexible options for users to calculate tips efficiently.
@@ -58,7 +58,7 @@ The **Tip Calculator App** is an interactive tool designed to simplify bill spli
 ---
 
 ## Demo
-[Live Preview](#) *(Link to the hosted version of the app)*
+[Live Preview](https://cgnnanna.github.io/tip-calculator-app/)
 
 ---
 
