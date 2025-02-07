@@ -1,3 +1,6 @@
+// Import the updateCalculations function from utils.js
+import { updateCalculations } from './utils.js';
+
 // Variable Declaration and Assignment
 const billInput = document.getElementById('bill');
 const peopleInput = document.getElementById('people');
@@ -7,6 +10,11 @@ const tipButtons = document.querySelectorAll('.tip-percentage');
 const customTipInput = document.getElementById('custom-tip');
 const clueText = document.querySelector('.clue');
 
+// Set default CSS variables
+document.documentElement.style.setProperty('--border-error', '2px solid red');
+document.documentElement.style.setProperty('--hidden', 'none');
+document.documentElement.style.setProperty('--visible', 'inline');
+
 // Initial Variables
 let billAmount = 0;
 let numberOfPeople = 0;
@@ -14,43 +22,38 @@ let tipPercentage = 0;
 
 // Helper function to reset active button styles
 const resetTipButtons = () => {
-    tipButtons.forEach(button => {
-        button.classList.remove('active'); // Assume `.active` styles the selected button
-    });
+    tipButtons.forEach(button => button.classList.remove('active'));
 };
 
 // Event Listener for Bill Input
 billInput.addEventListener('input', () => {
     billAmount = parseFloat(billInput.value) || 0;
-    updateCalculations();
+    updateCalculations(billAmount, numberOfPeople, tipPercentage, tipAmountDisplay);
 });
 
 // Event Listener for People Input
 peopleInput.addEventListener('input', () => {
-    numberOfPeople = parseInt(peopleInput.value) || 0; // Default to 0 if empty
+    numberOfPeople = parseInt(peopleInput.value) || 0;
 
     if (numberOfPeople <= 0) {
-        // Show "can't be zero" text and add red border
-        clueText.style.display = 'inline';
-        peopleInput.style.border = '2px solid red';
+        clueText.style.display = getComputedStyle(document.documentElement).getPropertyValue('--visible');
+        peopleInput.style.border = getComputedStyle(document.documentElement).getPropertyValue('--border-error');
     } else {
-        // Hide "can't be zero" text and reset border
-        clueText.style.display = 'none';
+        clueText.style.display = getComputedStyle(document.documentElement).getPropertyValue('--hidden');
         peopleInput.style.border = '';
     }
-
-    updateCalculations();
+    updateCalculations(billAmount, numberOfPeople, tipPercentage, tipAmountDisplay);
 });
 
 // Event Listener for Tip Buttons
 tipButtons.forEach(button => {
     button.addEventListener('click', () => {
         if (billAmount > 0 && numberOfPeople > 0) {
-            resetTipButtons(); // Reset active states for buttons
-            button.classList.add('active'); // Highlight the selected button
-            tipPercentage = parseInt(button.dataset.tip); // Retrieve tip percentage
-            customTipInput.value = ''; // Clear custom input if a button is clicked
-            updateCalculations();
+            resetTipButtons();
+            button.classList.add('active');
+            tipPercentage = parseInt(button.dataset.tip);
+            customTipInput.value = '';
+            updateCalculations(billAmount, numberOfPeople, tipPercentage, tipAmountDisplay);
         }
     });
 });
@@ -58,44 +61,22 @@ tipButtons.forEach(button => {
 // Event Listener for Custom Tip
 customTipInput.addEventListener('input', () => {
     if (billAmount > 0 && numberOfPeople > 0) {
-        resetTipButtons(); // Reset active state for buttons
-        tipPercentage = parseFloat(customTipInput.value) || 0; // Allow decimal tips
-        updateCalculations();
+        resetTipButtons();
+        tipPercentage = parseFloat(customTipInput.value) || 0;
+        updateCalculations(billAmount, numberOfPeople, tipPercentage, tipAmountDisplay);
     }
 });
-
-// Calculation Logic
-const updateCalculations = () => {
-    if (billAmount > 0 && numberOfPeople > 0) {
-        const tipAmount = (billAmount * tipPercentage) / 100;
-        const totalAmount = billAmount + tipAmount;
-
-        const tipPerPerson = (tipAmount / numberOfPeople).toFixed(2);
-        const totalPerPerson = (totalAmount / numberOfPeople).toFixed(2);
-
-        // Update Tip and Total Amount per Person
-        tipAmountDisplay[0].textContent = `$${tipPerPerson}`;
-        tipAmountDisplay[1].textContent = `$${totalPerPerson}`;
-    } else {
-        // Default display if inputs are invalid
-        tipAmountDisplay.forEach(display => {
-            display.textContent = '$0.00';
-        });
-    }
-};
 
 // Reset Button Functionality
 resetBtn.addEventListener('click', () => {
     billInput.value = '';
     peopleInput.value = '';
     customTipInput.value = '';
-    resetTipButtons(); // Reset active state for buttons
-    tipAmountDisplay.forEach(display => {
-        display.textContent = '$0.00';
-    });
+    resetTipButtons();
+    tipAmountDisplay.forEach(display => display.textContent = '$0.00');
     billAmount = 0;
     numberOfPeople = 0;
     tipPercentage = 0;
-    clueText.style.display = 'none'; // Hide clue text
-    peopleInput.style.border = ''; // Reset border
+    clueText.style.display = getComputedStyle(document.documentElement).getPropertyValue('--hidden');
+    peopleInput.style.border = '';
 });
