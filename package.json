@@ -1,0 +1,24 @@
+{
+  "name": "tip-calculator-app",
+  "version": "1.0.0",
+  "description": "The **Tip Calculator App** is an interactive tool designed to simplify bill splitting and tip calculations. It features a clean interface, real-time updates, and flexible options for users to calculate tips efficiently.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cgnnanna/tip-calculator-app.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cgnnanna/tip-calculator-app/issues"
+  },
+  "homepage": "https://github.com/cgnnanna/tip-calculator-app#readme",
+  "devDependencies": {
+    "webpack": "^5.102.1",
+    "webpack-cli": "^6.0.1"
+  }
+}
